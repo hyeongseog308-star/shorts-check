@@ -10,6 +10,7 @@ const staticEntries = [
   "contact.html",
   "assets",
   "robots.txt",
+  "sitemap.xml",
   "_headers",
 ];
 

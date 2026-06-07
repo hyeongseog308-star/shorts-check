@@ -56,6 +56,7 @@ test("build emits the Cloudflare Pages static output in dist", async () => {
     "index.html",
     "privacy.html",
     "robots.txt",
+    "sitemap.xml",
   ];
 
   // When
