@@ -29,6 +29,8 @@ npx serve dist
 
 ## Cloudflare Pages 배포
 
+### 대시보드에서 연결
+
 1. 이 저장소를 GitHub 또는 GitLab에 올립니다.
 2. Cloudflare 대시보드에서 **Workers & Pages > Create > Pages > Connect to Git**을
    선택합니다.
@@ -44,12 +46,23 @@ npx serve dist
 
 4. **Save and Deploy**를 선택합니다.
 
+### Wrangler로 배포
+
+Cloudflare 인증이 된 환경에서는 아래 명령으로도 배포할 수 있습니다.
+
+```bash
+npm run build
+npx wrangler pages deploy dist --project-name shorts-check
+```
+
+`wrangler.toml`에는 Cloudflare Pages 출력 폴더(`dist`)가 명시되어 있습니다.
 Cloudflare Pages는 `dist/_headers`의 기본 보안 헤더를 자동으로 적용합니다.
 
 ## 공개 전 필수 확인
 
-- 실제 도메인이 정해지면 각 페이지에 canonical URL을 추가하고 `sitemap.xml`을
-  생성합니다.
+- 실제 도메인이 정해지면 각 페이지에 canonical URL을 추가합니다. `sitemap.xml`은
+  표준상 절대 URL이 필요하므로 Cloudflare Pages 기본 도메인 또는 커스텀 도메인
+  확정 후 생성합니다.
 - AdSense를 추가할 경우 광고 스크립트 적용 전에 `privacy.html`의 광고 및 쿠키
   항목과 필요한 동의 절차를 업데이트합니다.
 - 실제 낭독 샘플로 한국어 분당 300자, 영어 분당 150단어 기준이 목표 채널에
