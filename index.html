@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="유튜브 쇼츠 대본의 예상 낭독 시간, 30·45·60초 적합도, 자막 줄 수와 긴 문장을 무료로 확인하세요."
+    />
+    <title>쇼츠체크 | 유튜브 쇼츠 대본 시간 계산기</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script type="module" src="./assets/js/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 바로가기</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html" aria-label="쇼츠체크 홈">
+          쇼츠체크 <span class="brand-en">shorts-check</span>
+        </a>
+        <nav class="site-nav" aria-label="주요 메뉴">
+          <a href="./index.html" aria-current="page">계산기</a>
+          <a href="./about.html">소개</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./privacy.html">개인정보</a>
+          <a href="./contact.html">문의</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container hero-copy">
+          <h1>쇼츠 대본,<br />몇 초인지 바로 확인하세요</h1>
+          <p>
+            대본을 붙여넣으면 예상 낭독 시간과 쇼츠 적합도를 계산합니다.
+            입력한 내용은 브라우저 밖으로 전송되지 않습니다.
+          </p>
+        </div>
+      </section>
+
+      <form class="container calculator" data-calculator>
+        <section class="editor-panel" aria-labelledby="editor-title">
+          <div class="control-row">
+            <fieldset class="control-group">
+              <legend class="control-label">대본 언어</legend>
+              <div class="segmented-control">
+                <input
+                  id="language-ko"
+                  name="language"
+                  type="radio"
+                  value="ko"
+                  checked
+                />
+                <label for="language-ko">한국어</label>
+                <input
+                  id="language-en"
+                  name="language"
+                  type="radio"
+                  value="en"
+                />
+                <label for="language-en">English</label>
+              </div>
+            </fieldset>
+            <fieldset class="control-group">
+              <legend class="control-label">낭독 속도</legend>
+              <div class="segmented-control">
+                <input id="speed-10" name="speed" type="radio" value="1" checked />
+                <label for="speed-10">1.0x</label>
+                <input id="speed-13" name="speed" type="radio" value="1.3" />
+                <label for="speed-13">1.3x</label>
+                <input id="speed-15" name="speed" type="radio" value="1.5" />
+                <label for="speed-15">1.5x</label>
+                <input id="speed-17" name="speed" type="radio" value="1.7" />
+                <label for="speed-17">1.7x</label>
+              </div>
+            </fieldset>
+          </div>
+
+          <label class="script-label" id="editor-title" for="script">
+            쇼츠 대본
+          </label>
+          <textarea
+            class="script-input"
+            id="script"
+            data-script
+            placeholder="여기에 쇼츠 대본을 붙여넣으세요."
+            spellcheck="true"
+          ></textarea>
+          <div class="editor-actions">
+            <p class="privacy-note">모든 계산은 이 기기에서만 처리됩니다.</p>
+            <div class="button-row">
+              <button class="button" type="button" data-sample>예시 넣기</button>
+              <button class="button" type="button" data-clear>지우기</button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="results-panel" aria-live="polite" aria-label="대본 분석 결과">
+          <div class="duration-card">
+            <p>예상 낭독 시간</p>
+            <strong class="duration-value" data-duration>0초</strong>
+            <div class="result-meta">
+              <span data-unit-count>0 글자</span>
+              <span>예상 자막 <strong data-subtitle-lines>0줄</strong></span>
+            </div>
+          </div>
+          <section class="result-section">
+            <h2>쇼츠 길이 적합도</h2>
+            <ul class="fit-list" data-targets></ul>
+          </section>
+          <section class="result-section">
+            <h2>긴 문장 경고</h2>
+            <div data-sentence-warnings></div>
+          </section>
+        </aside>
+      </form>
+
+      <section class="guide-band">
+        <div class="container">
+          <div class="section-heading">
+            <h2>촬영 전, 두 가지만 확인하세요</h2>
+            <p>
+              체크 상태는 저장되지 않습니다. 대본을 다듬는 동안 빠르게 점검하는
+              용도로 사용하세요.
+            </p>
+          </div>
+          <div class="check-columns">
+            <section class="check-block">
+              <h3>첫 3초 훅 체크</h3>
+              <div class="check-list">
+                <label><input type="checkbox" /> 첫 문장에 결과나 궁금증이 있다</label>
+                <label><input type="checkbox" /> 불필요한 인사 없이 바로 시작한다</label>
+                <label><input type="checkbox" /> 시청자가 얻을 이점을 약속한다</label>
+                <label><input type="checkbox" /> 화면 변화나 자막 포인트가 있다</label>
+              </div>
+            </section>
+            <section class="check-block">
+              <h3>업로드 체크리스트</h3>
+              <div class="check-list">
+                <label><input type="checkbox" /> 9:16 세로 화면으로 제작했다</label>
+                <label><input type="checkbox" /> 자막이 UI 영역에 가리지 않는다</label>
+                <label><input type="checkbox" /> 제목과 설명의 오탈자를 확인했다</label>
+                <label><input type="checkbox" /> 음원과 영상의 사용 권리를 확인했다</label>
+                <label><input type="checkbox" /> 마지막 행동 요청이 한 가지로 명확하다</label>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="method-section">
+        <div class="container method-grid">
+          <h2>계산 기준</h2>
+          <ul class="plain-list">
+            <li>
+              <strong>한국어 기본 속도</strong>
+              <span>분당 약 300자를 기준으로 계산합니다.</span>
+            </li>
+            <li>
+              <strong>영어 기본 속도</strong>
+              <span>분당 약 150단어를 기준으로 계산합니다.</span>
+            </li>
+            <li>
+              <strong>자막 줄 수</strong>
+              <span>
+                한 줄에 한국어 18자, 영어 32자가 읽기 편하다고 가정한
+                추정치입니다.
+              </span>
+            </li>
+            <li>
+              <strong>실제 녹음과의 차이</strong>
+              <span>
+                쉼, 감정, 효과음과 편집에 따라 달라질 수 있으니 최종 녹음 전에
+                직접 읽어보세요.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <a class="brand" href="./index.html">쇼츠체크</a>
+          <p class="footer-copy">
+            © <span data-current-year></span> shorts-check. 무료 정적 도구.
+          </p>
+        </div>
+        <nav class="footer-nav" aria-label="하단 메뉴">
+          <a href="./about.html">소개</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./privacy.html">개인정보처리방침</a>
+          <a href="./contact.html">문의</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "shorts-check",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node --check assets/js/calculator.js && node --check assets/js/app.js && node --check scripts/build.mjs",
+    "test": "node --test"
+  }
+}
